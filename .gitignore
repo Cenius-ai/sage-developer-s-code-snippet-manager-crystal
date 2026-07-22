@@ -1,0 +1,25 @@
+# Dependencies
+lib/
+.bundle/
+vendor/
+
+# Build output
+bin/
+*.dwarf
+
+# Database
+data/
+
+# Environment
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

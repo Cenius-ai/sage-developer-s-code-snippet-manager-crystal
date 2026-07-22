@@ -1,0 +1,22 @@
+name: sage
+version: 1.0.0
+description: A developer-focused code snippet manager and pastebin.
+
+authors:
+  - Sage <dev@sage.local>
+
+targets:
+  sage:
+    main: src/app.cr
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+    version: "~> 1.5"
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
+    version: "~> 0.21"
+
+crystal: ">= 1.10.0"
+
+license: MIT
