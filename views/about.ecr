@@ -1,0 +1,58 @@
+<%= render "views/_header.ecr" %>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Snippets</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span>About</span>
+</nav>
+
+<article class="about-page">
+  <h1 class="page-title">About Sage</h1>
+
+  <section class="about-section">
+    <h2>What is Sage?</h2>
+    <p>
+      Sage is a lightweight, developer-focused code snippet manager and pastebin.
+      It lets you save, browse, and search code snippets by programming language,
+      with syntax highlighting for dozens of languages.
+    </p>
+    <p>
+      Built for developers who want a fast, self-contained tool without accounts,
+      sign-ups, or external services. Every snippet is public and instantly searchable.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Features</h2>
+    <ul class="feature-list">
+      <li>Create snippets with a title, language tag, and code content</li>
+      <li>Browse recent snippets on the homepage</li>
+      <li>View any snippet with full syntax highlighting</li>
+      <li>Search snippets by programming language</li>
+      <li>Copy code to clipboard with one click</li>
+      <li>Toggle between light and dark themes</li>
+      <li>Fully responsive &mdash; works on mobile, tablet, and desktop</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h2>Technology</h2>
+    <p>
+      Sage is built with <strong>Crystal</strong> using the
+      <strong>Kemal</strong> web framework, with <strong>SQLite</strong> for
+      persistence and <strong>highlight.js</strong> for syntax highlighting.
+      Server-rendered HTML with vanilla JavaScript keeps pages fast and lean.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2>Supported Languages</h2>
+    <div class="lang-list">
+      <% %w[bash c crystal css dockerfile elixir go html java javascript json kotlin lua markdown php python ruby rust sql swift typescript yaml].each do |lang| %>
+        <span class="badge badge-lang"><%= lang %></span>
+      <% end %>
+    </div>
+  </section>
+</article>
+
+<%= render "views/_footer.ecr" %>

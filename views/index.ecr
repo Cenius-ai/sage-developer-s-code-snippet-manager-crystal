@@ -1,0 +1,52 @@
+<%= render "views/_header.ecr" %>
+
+<div class="page-hero">
+  <h1 class="page-title">Snippets</h1>
+  <p class="page-subtitle">Browse and search developer code snippets</p>
+</div>
+
+<section class="search-section">
+  <form action="/search" method="get" class="search-form" role="search">
+    <label for="search-lang" class="search-label">Filter by language</label>
+    <div class="search-row">
+      <select id="search-lang" name="lang" class="search-select">
+        <option value="">All languages</option>
+        <% Snippet.languages.each do |lang| %>
+          <option value="<%= lang %>"><%= lang %></option>
+        <% end %>
+      </select>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+</section>
+
+<section class="snippet-list" aria-label="Recent snippets">
+  <% if View.snippets.empty? %>
+    <div class="empty-state">
+      <p>No snippets yet. <a href="/new">Create the first one</a>.</p>
+    </div>
+  <% else %>
+    <div class="snippet-grid">
+      <% View.snippets.each do |snip| %>
+        <a href="/snippet/<%= snip.id %>" class="snippet-card">
+          <div class="snippet-card-header">
+            <h2 class="snippet-card-title"><%= snip.title %></h2>
+            <span class="badge badge-lang"><%= snip.language %></span>
+          </div>
+          <div class="snippet-card-preview">
+            <pre><code class="language-<%= snip.language %>"><%= HTML.escape(snip.content.lines.first(3).join) %></code></pre>
+          </div>
+          <time class="snippet-card-date" datetime="<%= snip.created_at %>">
+            <%= snip.created_at %>
+          </time>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
+</section>
+
+<section class="cta-section">
+  <a href="/new" class="btn btn-primary btn-lg">+ New Snippet</a>
+</section>
+
+<%= render "views/_footer.ecr" %>

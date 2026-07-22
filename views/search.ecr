@@ -1,0 +1,67 @@
+<%= render "views/_header.ecr" %>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Snippets</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span>Search</span>
+</nav>
+
+<div class="page-hero">
+  <h1 class="page-title">
+    <% if View.query && !View.query.not_nil!.empty? %>
+      Results for <em><%= HTML.escape(View.query.not_nil!) %></em>
+    <% else %>
+      All Snippets
+    <% end %>
+  </h1>
+  <p class="page-subtitle">
+    <%= View.snippets.size %> snippet<%= View.snippets.size == 1 ? "" : "s" %> found
+  </p>
+</div>
+
+<section class="search-section">
+  <form action="/search" method="get" class="search-form" role="search">
+    <label for="search-lang" class="search-label">Filter by language</label>
+    <div class="search-row">
+      <select id="search-lang" name="lang" class="search-select">
+        <option value="">All languages</option>
+        <% Snippet.languages.each do |lang| %>
+          <option value="<%= lang %>" <%= "selected" if View.query == lang %>><%= lang %></option>
+        <% end %>
+      </select>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+</section>
+
+<section class="snippet-list" aria-label="Search results">
+  <% if View.snippets.empty? %>
+    <div class="empty-state">
+      <% if View.query && !View.query.not_nil!.empty? %>
+        <p>No snippets found for <strong><%= HTML.escape(View.query.not_nil!) %></strong>.</p>
+        <p><a href="/search">Clear filter</a> or <a href="/new">create a new snippet</a>.</p>
+      <% else %>
+        <p>No snippets yet. <a href="/new">Create the first one</a>.</p>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="snippet-grid">
+      <% View.snippets.each do |snip| %>
+        <a href="/snippet/<%= snip.id %>" class="snippet-card">
+          <div class="snippet-card-header">
+            <h2 class="snippet-card-title"><%= snip.title %></h2>
+            <span class="badge badge-lang"><%= snip.language %></span>
+          </div>
+          <div class="snippet-card-preview">
+            <pre><code class="language-<%= snip.language %>"><%= HTML.escape(snip.content.lines.first(3).join) %></code></pre>
+          </div>
+          <time class="snippet-card-date" datetime="<%= snip.created_at %>">
+            <%= snip.created_at %>
+          </time>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
+</section>
+
+<%= render "views/_footer.ecr" %>

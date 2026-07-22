@@ -1,0 +1,73 @@
+<%= render "views/_header.ecr" %>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Snippets</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span>New</span>
+</nav>
+
+<div class="form-page">
+  <h1 class="page-title">New Snippet</h1>
+  <p class="page-subtitle">Save a code snippet for quick reference or sharing.</p>
+
+  <% if View.error_msg %>
+    <div class="form-error" role="alert">
+      <p><%= View.error_msg %></p>
+    </div>
+  <% end %>
+
+  <form action="/create" method="post" class="snippet-form" novalidate>
+    <div class="form-field">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="form-input"
+        placeholder="e.g. Quick sort in Python"
+        value="<%= HTML.escape(View.form_title || "") %>"
+        required
+        maxlength="200"
+      >
+    </div>
+
+    <div class="form-field">
+      <label for="language" class="form-label">Language</label>
+      <select id="language" name="language" class="form-select" required>
+        <option value="">Select a language&hellip;</option>
+        <%
+          languages = [
+            "bash", "c", "crystal", "css", "dockerfile", "elixir",
+            "go", "html", "java", "javascript", "json", "kotlin",
+            "lua", "markdown", "php", "python", "ruby", "rust",
+            "sql", "swift", "typescript", "yaml", "text"
+          ]
+          selected = View.form_language || ""
+        %>
+        <% languages.each do |lang| %>
+          <option value="<%= lang %>" <%= "selected" if lang == selected %>><%= lang %></option>
+        <% end %>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="content" class="form-label">Code</label>
+      <textarea
+        id="content"
+        name="content"
+        class="form-textarea"
+        rows="16"
+        placeholder="Paste your code here&hellip;"
+        required
+        spellcheck="false"
+      ><%= HTML.escape(View.form_content || "") %></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary btn-lg">Save Snippet</button>
+      <a href="/" class="btn btn-secondary">Cancel</a>
+    </div>
+  </form>
+</div>
+
+<%= render "views/_footer.ecr" %>

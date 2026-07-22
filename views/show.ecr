@@ -1,0 +1,46 @@
+<%= render "views/_header.ecr" %>
+
+<% snip = View.snippet.not_nil! %>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Snippets</a>
+  <span aria-hidden="true">&rsaquo;</span>
+  <span><%= snip.title %></span>
+</nav>
+
+<article class="snippet-detail">
+  <header class="snippet-detail-header">
+    <div class="snippet-detail-meta">
+      <h1 class="snippet-detail-title"><%= snip.title %></h1>
+      <span class="badge badge-lang"><%= snip.language %></span>
+    </div>
+    <time class="snippet-detail-date" datetime="<%= snip.created_at %>">
+      Created <%= snip.created_at %>
+    </time>
+  </header>
+
+  <div class="code-block-wrapper">
+    <div class="code-block-bar">
+      <span class="code-lang-label"><%= snip.language %></span>
+      <button
+        type="button"
+        class="btn btn-copy"
+        data-copy-target="snippet-code"
+        aria-label="Copy code to clipboard"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+        </svg>
+        <span>Copy</span>
+      </button>
+    </div>
+    <pre id="snippet-code" class="snippet-code"><code class="language-<%= snip.language %>"><%= HTML.escape(snip.content) %></code></pre>
+  </div>
+</article>
+
+<div class="detail-actions">
+  <a href="/" class="btn btn-secondary">&larr; Back to all snippets</a>
+  <a href="/new" class="btn btn-primary">+ New Snippet</a>
+</div>
+
+<%= render "views/_footer.ecr" %>
