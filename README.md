@@ -1,6 +1,7 @@
 # Sage — Developer's Code Snippet Manager — Crystal pet knowledge base app reference implementation
 
-**Sage — Developer's Code Snippet Manager** is a free, open-source pet knowledge base app built with Crystal. Sage is a public pastebin for developers to quickly share code snippets without accounts. Run it locally, deploy it as a self-hosted knowledge base app, or [remix it on cenius.ai](https://cenius.ai/marketplace/p/sage-developer-s-code-snippet-manager?ref=gh&utm_campaign=sage-developer-s-code-snippet-manager-crystal) to make it your own — the whole application (code, design, seeded demo data) ships in this repository under the Apache-2.0 license.
+If you want a self-hosted knowledge base app without the vendor lock-in, **Sage — Developer's Code Snippet Manager** is ready to run. Built with Crystal and Apache-2.0-licensed, Sage — Developer's Code Snippet Manager ships complete — one clone, one install command. Sage is a public pastebin for developers to quickly share code snippets without accounts. [Open Sage — Developer's Code Snippet Manager on cenius.ai](https://cenius.ai/marketplace/p/sage-developer-s-code-snippet-manager?ref=gh&utm_campaign=sage-developer-s-code-snippet-manager-crystal) to customise it without touching a line of Sage — Developer's Code Snippet Manager code.
+
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE) ![Stack](https://img.shields.io/badge/Stack-Crystal-3b82f6) [![Built with cenius.ai](https://img.shields.io/badge/Built%20with-cenius.ai-8b5cf6)](https://cenius.ai)
 
@@ -16,22 +17,11 @@ _Local clone? See [Quick start](#quick-start) below. cenius.ai is the zero-setup
 
 ![Sage — Developer's Code Snippet Manager demo — pet knowledge base app built with Crystal](.github/media/hero_flagship.gif)
 
-▶ **[Watch the full demo video](https://cenius.ai/marketplace/p/sage-developer-s-code-snippet-manager?ref=gh&utm_campaign=sage-developer-s-code-snippet-manager-crystal)** — the complete walkthrough, playing on the project's cenius.ai page · [MP4 file](.github/media/demo.mp4)
+▶ **[See it in action](https://cenius.ai/marketplace/p/sage-developer-s-code-snippet-manager?ref=gh&utm_campaign=sage-developer-s-code-snippet-manager-crystal)** — full demo on the project page · [MP4](.github/media/demo.mp4)
 
 ## Screenshots
 
 <img src=".github/media/shot-1.png" width="32%" alt="Sage — Developer's Code Snippet Manager knowledge base app screenshot 1"/> <img src=".github/media/shot-2.png" width="32%" alt="Sage — Developer's Code Snippet Manager knowledge base app screenshot 2"/> <img src=".github/media/shot-3.png" width="32%" alt="Sage — Developer's Code Snippet Manager knowledge base app screenshot 3"/>
-
-## Features
-
-- Create public snippet
-- View a snippet
-- List recent snippets
-- Search by language
-- Light/Dark theme toggle
-- Seeded demo data
-- Responsive design
-- Syntax highlighting
 
 ## Quick start
 
@@ -96,9 +86,20 @@ typescript, yaml, text
 
 _Full guide: [`USAGE.md`](USAGE.md)_
 
+## Features
+
+- Create public snippet
+- View a snippet
+- List recent snippets
+- Search by language
+- Light/Dark theme toggle
+- Seeded demo data
+- Responsive design
+- Syntax highlighting
+
 ## Architecture
 
-Crystal application, delivered as a complete, runnable project (254 files). Top-level layout: `bin/`, `data/`, `lib/`, `public/`, `src/`, `views/`. `install.sh` provisions dependencies and seeds demo data, so the app boots with something to show. Setup details live in [`INSTALL.md`](INSTALL.md).
+A self-contained Crystal project (254 files): top-level directories include `bin/`, `data/`, `lib/`, `public/`, `src/`, `views/`. `install.sh` takes care of packages and initial data in a single pass; nothing else is required before launching. For environment-specific setup, see [`INSTALL.md`](INSTALL.md).
 
 ## FAQ
 
@@ -106,13 +107,9 @@ Crystal application, delivered as a complete, runnable project (254 files). Top-
 
 Everything you need ships in this repo: clone it, run `./install.sh` to install dependencies and seed demo data, then follow [`INSTALL.md`](INSTALL.md) to start it. No external services required.
 
-### Can I use Sage — Developer's Code Snippet Manager in a commercial project?
-
-Yes. The code is Apache-2.0-licensed — use it, modify it, and ship it commercially. See [LICENSE](LICENSE).
-
 ### How do I make Sage — Developer's Code Snippet Manager my own brand?
 
-Yes — and the easiest way is [remixing it on cenius.ai](https://cenius.ai/marketplace/p/sage-developer-s-code-snippet-manager?ref=gh&utm_campaign=sage-developer-s-code-snippet-manager-crystal): modifications made on the platform come with full rebrand and relicense rights over your derivative.
+White-labeling is supported: fork the MIT-licensed source and rebrand it yourself, or use [cenius.ai](https://cenius.ai/marketplace/p/sage-developer-s-code-snippet-manager?ref=gh&utm_campaign=sage-developer-s-code-snippet-manager-crystal) to make changes in a guided workspace — platform modifications come with full rebrand rights.
 
 ### Can I change Sage — Developer's Code Snippet Manager without writing code?
 
@@ -120,7 +117,11 @@ Open it on [cenius.ai](https://cenius.ai/marketplace/p/sage-developer-s-code-sni
 
 ### What is Sage — Developer's Code Snippet Manager built with?
 
-The app is built with Crystal. What you see in this repo is the full production source, demo data included. Highlights include view a snippet.
+Sage — Developer's Code Snippet Manager runs on Crystal. This repo holds the full production source: you can inspect every part of it before deploying. Highlights include view a snippet.
+
+### Is it OK to ship Sage — Developer's Code Snippet Manager as part of a product?
+
+Yes. The code is Apache-2.0-licensed — use it, modify it, and ship it commercially. See [LICENSE](LICENSE).
 
 ## License & rebranding
 
